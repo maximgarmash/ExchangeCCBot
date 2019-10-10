@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
-# from flask_sslify import SSLify
+from flask_sslify import SSLify
 import requests
 import json
 import constants
@@ -9,7 +9,7 @@ import re
 import ReplyKeyboard
 
 app = Flask(__name__)
-# sslify = SSLify(app)
+sslify = SSLify(app)
 
 URL = constants.url + constants.token
 
@@ -23,6 +23,7 @@ def send_message(chat_id, text, reply_markup={}):
     url = URL + 'sendMessage'
     answer = {'chat_id': chat_id, 'text': text, 'reply_markup': reply_markup}
     r = requests.post(url, json=answer)
+    return r.json()
 
 
 def parse_text(text):
@@ -57,7 +58,7 @@ def index():
         if parse_text(message):
             send_message(chat_id, get_price(parse_text(message)) + ' US$')
         return jsonify(r)
-    return '<h1>Bot welcomes you<h1>'
+    return '<h1>ExchangeCCBot welcomes you<h1>'
 
 
 def main():
