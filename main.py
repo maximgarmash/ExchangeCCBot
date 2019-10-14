@@ -56,7 +56,8 @@ def index():
             res_coin = requests.get(constants.url_coin).json()
             send_message(chat_id, '\n'.join([coin['symbol'].ljust(15, ' ') + '/{}'.format(coin['id']).replace('-', '_') for coin in res_coin]))
         if parse_text(message):
-            send_message(chat_id, parse_text(message) + '\n' + get_price(parse_text(message)) + ' US$')
+            send_message(chat_id, parse_text(message) + '\n' + get_price(parse_text(message)) + ' USD')
+        if message == '/currencies cbr':
         return jsonify(r)
     return '<h1>ExchangeCCBot welcomes you<h1>'
 
