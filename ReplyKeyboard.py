@@ -1,7 +1,7 @@
 
 start_markup = {
                   "keyboard": [[{"text": "/cryptocurrencies", "request_contact": False, "request_location": False},
-                                {"text": "/currencies cbr", "request_contact": False, "request_location": False}],
+                                {"text": "/currencies_cbr", "request_contact": False, "request_location": False}],
                                 [{"text": "/stop", "request_contact": False, "request_location": False}]],
                                 "resize_keyboard": True, "one_time_keyboard": False, "selective": False
                 }
